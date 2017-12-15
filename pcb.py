@@ -55,9 +55,9 @@ class led:  #class to control the led
 
     def blink(amount,interval): #blink the led
         for x in range(amount):
-            toggle(1)
+            led.toggle(1)
             time.sleep(interval)
-            toggle(0)
+            led.toggle(0)
             time.sleep(interval)
 
 def return_config_bool(searchterm):
@@ -81,7 +81,7 @@ if return_config_bool("video"):
     os.system("omxplayer " + path.intro_video + " &") #start the bootvideo on start
 
 def toggle(toggle_this):  #change one of the values in the config file
-    parser = ConfigParser()
+    parser = configparser.ConfigParser()
     parser.read(path.config_file)
     if return_config_bool(toggle_this):
         parser.set('Boot', toggle_this, "False")
