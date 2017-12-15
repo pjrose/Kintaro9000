@@ -106,10 +106,10 @@ def check_resetbutton():
             reset_counter = reset_counter + 1
             time.sleep(vars.counter_time)
         if reset_counter > vars.reset_hold_short:  # check if its hold more that one second
-            if counter <= vars.reset_hold_long:  # if you hold it less than 5 sec it will toggle the fan
+            if reset_counter <= vars.reset_hold_long:  # if you hold it less than 5 sec it will toggle the fan
                 toggle("fan")
                 led.blink(3, 0.5)
-            if counter > vars.reset_hold_long:  # if you hold it more than 5 seconds if will toggle the bootupvideo
+            if reset_counter > vars.reset_hold_long:  # if you hold it more than 5 seconds if will toggle the bootupvideo
                 toggle("video")
                 led.blink(10, 0.5)
         else:
